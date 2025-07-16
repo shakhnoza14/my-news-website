@@ -2,7 +2,12 @@ from django.shortcuts import render
 from .models import CategoriaModel, NewsModel
 
 def home_view(request):
-    return render(request, 'index4.html')
+    posts = NewsModel.objects.order_by('-id')[:5]
+
+    context = {
+        'posts': posts,
+    }
+    return render(request, 'index4.html', context)
 
 def error_view (request):
     return render(request, '404.html')

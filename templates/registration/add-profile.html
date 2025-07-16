@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup</title>
+    <title>Add-profile</title>
     <link href="https://fonts.googleapis.com/css2?family=Asap&display=swap" rel="stylesheet">
     <style>
         body {
@@ -107,19 +107,16 @@
 </head>
 
 <body>
-    <h1>Signup!!!</h1>
-    <form method="post" action="{% url 'signup' %}" class="login">
+    <h1>Profile</h1>
+    <form method="post" action="{% url 'add-profile' %}" class="login">
         {% csrf_token %}
-        <!-- {{ form.as_p }} -->
-        {{form.username}}
-        {{form.email}}
-        {{form.password}}
-        <button type="submit">Sign up</button>
-        <p style="padding-top: 5px;">Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit">Login</button>
+        <p style="padding-top: 5px;">Don't have an account? <a href="{% url 'signup' %}">Create one</a></p>
     </form>
 
     <a href="https://codepen.io/davinci/" target="_blank">check my other pens</a>
-    
 </body>
 
-</html>
+</html> -->

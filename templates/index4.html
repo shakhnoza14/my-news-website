@@ -1,38 +1,41 @@
 {% extends 'layouts/base.html' %}
-
+{% load static %}
 {% block content %}
     {% include 'layouts/header.html' %}
     {% include 'layouts/news_feed.html' %}
 
+    {% comment %} {% for p in posts %} {% endcomment %}
     <!-- News Slider Area Start Here -->
     <section class="section-space-less10">
         <div class="container">
             <div class="row tab-space5">
+                {% for p in posts %}
                 <div class="col-lg-5 col-md-12 mb-10">
                     <div class="img-overlay-70 img-scale-animate">
-                        <img src="img/news/news200.jpg" alt="news" class="img-fluid width-100">
+                        <img src="{{p.imageюгкд}}" alt="news" class="img-fluid width-100">
                         <div class="mask-content-lg">
-                            <div class="topic-box-sm color-cinnabar mb-20">Racing</div>
+                            <div class="topic-box-sm color-cinnabar mb-20">{{p.categoria.name}}</div>
                             <div class="post-date-light">
                                 <ul>
                                     <li>
                                         <span>by</span>
-                                        <a href="single-news-1.html">Adams</a>
+                                        <a href="single-news-1.html">{{p.author}}</a>
                                     </li>
                                     <li>
                                         <span>
                                             <i class="fa fa-calendar" aria-hidden="true"></i>
-                                        </span>March 22, 2017
+                                        </span>{{p.created_at|date:"d M Y" }}
                                     </li>
                                 </ul>
                             </div>
                             <h1 class="title-medium-light">
-                                <a href="single-news-1.html">ARR Craib MSA Scottish Rally they Champion</a>
+                                <a href="single-news-1.html">{{p.title}}</a>
                             </h1>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-7 col-md-12">
+                {% endfor %}
+                {% comment %} <div class="col-lg-7 col-md-12">
                     <div class="row tab-space5">
                         <div class="col-sm-6 col-12">
                             <div class="img-overlay-70 img-scale-animate mb-10">
@@ -79,10 +82,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> {% endcomment %}
             </div>
         </div>
     </section>
+    {% comment %} {% endfor %} {% endcomment %}
+        
 
     <!-- Popular Area Start Here -->
     <section class="section-space-bottom">

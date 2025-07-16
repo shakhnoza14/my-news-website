@@ -29,3 +29,19 @@ class ContactModel(models.Model):
         ordering = ['-created_at']
 
 
+class ProfileModel(models.Model):
+    user = models.OneToOneField(Usermodel, on_delete=models.CASCADE)
+    bio = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to='profile_images/', default='profile_images/default.jpg')
+    banner = models.ImageField(upload_to='profile_banners/', default='profile_banners/default_banner.jpg')
+
+    def __str__(self):
+        return f"Profile of {self.user.username}"
+
+    class Meta:
+        db_table = 'profile'
+        managed = True
+        verbose_name = 'ProfileModel'
+        verbose_name_plural = 'ProfileModels'
+
+
