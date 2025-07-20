@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-$*(xu%j+^%$fb0sgq@#a6vk1h61ju8m3uv7!7rqan9c*^cgq31
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -119,7 +119,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
@@ -142,4 +142,8 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'normamatovashakhnoza@gmail.com'
 EMAIL_HOST_PASSWORD = 'oehchhswxzbtpmkx'
 DEFAULT_FROM_EMAIL = 'MySite <normamatovashakhnoza@gmail.com>'
+
+# Password reset token expiration (in seconds)
+# Default is 3 days (259200 seconds), we're setting it to 1 hour (3600 seconds)
+PASSWORD_RESET_TIMEOUT = 3600  # 1 hour
 

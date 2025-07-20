@@ -30,7 +30,7 @@ class ContactModel(models.Model):
 
 
 class ProfileModel(models.Model):
-    user = models.OneToOneField(Usermodel, on_delete=models.CASCADE)
+    user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
     bio = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='profile_images/', default='profile_images/default.jpg')
     banner = models.ImageField(upload_to='profile_banners/', default='profile_banners/default_banner.jpg')

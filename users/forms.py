@@ -16,3 +16,9 @@ class ProfileModelForm(forms.ModelForm):
     class Meta:
         model = ProfileModel
         fields = ['user', 'bio', 'image', 'banner']
+
+class EditModelForm(forms.ModelForm):
+    username = forms.CharField(max_length=200)
+    class Meta:
+        model = ProfileModel
+        fields = ['bio', 'image', 'username',]

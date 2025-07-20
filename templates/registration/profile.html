@@ -691,8 +691,9 @@
                                 <!-- BEGIN profile-header-info -->
                                 <div class="profile-header-info">
                                     <h4 class="m-t-10 m-b-5">{{profile.user}}</h4>
-                                    <p class="m-b-10">{{profile.bio}}</p>
-                                    <a href="#" class="btn btn-sm btn-info mb-2">Edit Profile</a>
+                                    <p class="m-b-10">{{ profile.bio }}</p>
+                                    <a href="{% url 'edit' profile.user.id %}" class="btn btn-sm btn-info mb-2">Edit Profile</a>
+                                    <a href="{% url 'password-change' %}" class="btn btn-sm btn-info mb-2">Change password</a>
                                 </div>
                                 <!-- END profile-header-info -->
                             </div>
